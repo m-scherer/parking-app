@@ -11,7 +11,7 @@ describe ImageClassifier do
 
         expect(classifiers).to be_instance_of(Array)
         expect(classifer).to be_instance_of(ImageClassifier)
-        expect(classifer).to respond_to(:class)
+        expect(classifer).to respond_to(:classification)
         expect(classifer).to respond_to(:score)
       end
     end
