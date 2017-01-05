@@ -6,7 +6,7 @@ class Api::V1::SpotsController < ApplicationController
       if classifier.classification == 'vehicle' && classifier.score > 0.75
         return find_spot.update!(taken: true)
       else
-        find_spot.update(taken: false)
+        find_spot.update!(taken: false)
       end
     end
   end
