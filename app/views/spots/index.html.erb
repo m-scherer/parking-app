@@ -1,7 +1,7 @@
 <h1>Spots Index</h1>
 <% @spots.each do |spot| %>
   <%= spot.lot.name %>
-  <%= spot.id %>
+  <%= spot.number %>
   <% if spot.taken %>
     Taken
   <% else %>
