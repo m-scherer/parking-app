@@ -12,4 +12,13 @@ describe 'As a User' do
       expect(page).to have_content('Taken')
     end
   end
+  context 'When a spot is available' do
+    it 'is labeled as available' do
+      spot = Spot.first
+
+      visit spots_path
+
+      expect(page).to have_content('Available')
+    end
+  end
 end
