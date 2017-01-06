@@ -21,6 +21,24 @@ VCR.configure do |config|
   config.hook_into :webmock
 end
 
+  def stub_omniauth
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new({
+      provider: "google",
+      uid: "12345678910",
+      info: {
+        email: "scmi2nd@gmail.com",
+        first_name: "Michael",
+        last_name: "Scherer"
+      },
+      credentials: {
+        token: "abcdefg12345",
+        refresh_token: "12345abcdefg",
+        expires_at: DateTime.now,
+      }
+      })
+  end
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end

@@ -1,1 +1,11 @@
-<h1>Welcome</h1>
+<div class="container-fluid">
+  <% if current_user %>
+    <%= "#{current_user.first_name} #{current_user.last_name}" %>
+    <%= link_to "Logout", logout_path %>
+  <% else %>
+    <%= link_to "Sign in with Google", "/auth/google" %>
+  <% end %>
+</div>
+<div class="container-fluid">
+  <h1>Welcome</h1>
+</div>
