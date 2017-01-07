@@ -3,8 +3,18 @@
     <a href="/" class="navbar-brand"><i class="glyphicon glyphicon-tower"></i></a>
   </div>
   <ul class="nav navbar-nav navbar-right">
-    <li>
-      <%= link_to "Spots", spots_path %>
-    </li>
+    <li><%= link_to "Spots", spots_path %></li>
+    <% if current_user %>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+          aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Logout", logout_path %></li>
+          </ul>
+      </li>
+      <% else %>
+      <li><%= link_to "Sign in with Google", "/auth/google" %></li>
+      <% end %>
+    <li></li>
   </ul>
 </nav>
