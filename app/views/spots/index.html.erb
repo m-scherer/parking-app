@@ -1,10 +1,28 @@
-<h1>Spots Index</h1>
-<% @spots.each do |spot| %>
-  <%= spot.lot.name %>
-  <%= spot.number %>
-  <% if spot.taken %>
-    Taken
-  <% else %>
-    Available
-  <% end %>
-<% end %>
+<h1 class="text-center">Spots</h1>
+
+<div class="container-fluid" id="table">
+    <table class="table table-condensed">
+      <thead class="text-center">
+        <tr>
+          <th>Lot</th>
+          <th>Spot Number</th>
+          <th>Address</th>
+          <th>Availability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @spots.each do |spot| %>
+        <tr>
+          <td><%= spot.lot.name %></td>
+          <td><%= spot.number %></td>
+          <td>tbd</td>
+          <% if spot.taken %>
+          <td>Taken</td>
+          <% else %>
+          <td>Available</td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
