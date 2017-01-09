@@ -2,7 +2,7 @@ class Api::V1::SpotsController < ApplicationController
 
   def update
     classifiers = ImageClassifier.create_classifiers(get_image_url)
-    ImageClassifier.change_taken_flag(classifiers)
+    find_spot.set_taken_flag(classifiers)
   end
 
   private

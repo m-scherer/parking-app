@@ -16,13 +16,9 @@ class ImageClassifier
     end
   end
 
-  def self.change_taken_flag(classifiers)
-    classifiers.each do |classifier|
-      if classifier.classification == 'vehicle' && classifier.score > 0.75
-        return find_spot.update!(taken: true)
-      else
-        find_spot.update!(taken: false)
-      end
+  def self.find_vehicle_classification(classifiers)
+    classifiers.find do |classifier|
+      classifier.classification == 'vehicle' && classifier.score > 0.75
     end
   end
 
