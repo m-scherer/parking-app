@@ -1,18 +1,22 @@
 class Api::V1::SpotsController < ApplicationController
 
-  def update
-    classifiers = ImageClassifier.create_classifiers(get_image_url)
-    find_spot.set_taken_flag(classifiers)
+  def create
+    spot = Spot.new(spot_params)
+    if spot.save
+      render json: spot
+    else
+      bad_request
+    end
   end
 
   private
 
-  def get_image_url
-    params.permit(:image_url)[:image_url]
+  def spot_params
+    params.permit(:lot_id, :number)
   end
 
-  def find_spot
-    Spot.find(params.permit(:id)[:id])
+  def bad_request
+    render json: {error: 'not acceptable'}.to_json, status: 406
   end
 
 end
