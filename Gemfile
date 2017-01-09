@@ -35,6 +35,7 @@ gem 'bootstrap-sass'
 
 gem 'figaro'
 gem 'faraday'
+gem 'omniauth-google-oauth2'
 
 group :production do
   gem 'rails_12factor'
