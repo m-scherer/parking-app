@@ -38,12 +38,8 @@ class Api::V1::SpotsController < ApplicationController
 
   private
 
-  def spot_params
-    params.permit(:lot_id, :number, :id, :taken)
-  end
-
-  def bad_request
-    render json: {error: 'not acceptable'}.to_json, status: 406
-  end
+    def spot_params
+      params.permit(:lot_id, :number, :id, :taken)
+    end
 
 end
