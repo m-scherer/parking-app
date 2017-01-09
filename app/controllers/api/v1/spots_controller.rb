@@ -26,6 +26,16 @@ class Api::V1::SpotsController < ApplicationController
         status: 204
   end
 
+  def index
+    render json: Spot.all,
+        status: 200
+  end
+
+  def show
+    render json: Spot.find(spot_params[:id]),
+        status: 200
+  end
+
   private
 
   def spot_params
