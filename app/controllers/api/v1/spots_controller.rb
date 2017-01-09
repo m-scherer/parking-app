@@ -18,6 +18,11 @@ class Api::V1::SpotsController < ApplicationController
     end
   end
 
+  def destroy
+    spot = Spot.find(spot_params[:id])
+    render json: spot.destroy
+  end
+
   private
 
   def spot_params
