@@ -8,7 +8,7 @@ describe 'Spot API' do
 
         delete "/api/v1/spots/#{spot.id}"
 
-        expect(response).to be_success
+        expect(response.status).to eq(204)
         expect(Spot.count).to eq(0)
       end
     end
