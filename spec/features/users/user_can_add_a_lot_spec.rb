@@ -39,21 +39,23 @@ describe 'As a User' do
       end
     end
     it 'can add spots' do
-      User.update_or_create(auth)
-      user = User.first
+      VCR.use_cassette('.create_spots_from_lot') do
+        User.update_or_create(auth)
+        user = User.first
 
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-      visit new_lot_path
+        visit new_lot_path
 
-      fill_in 'lot[name]', with: "Turing School"
-      fill_in 'lot[address]', with: "1510 Blake St Denver CO"
-      fill_in 'lot[spots]', with: 5
-      click_on 'Create Lot'
+        fill_in 'lot[name]', with: "Turing School"
+        fill_in 'lot[address]', with: "1510 Blake St Denver CO"
+        fill_in 'lot[spots]', with: 5
+        click_on 'Create Lot'
 
-      expect(current_path).to eq(spots_path)
-      expect(page).to have_content("Turing School successfully created")
-      expect(page).to have_selector('#spot', count: 5)
+        expect(current_path).to eq(spots_path)
+        expect(page).to have_content("Turing School successfully created")
+        expect(page).to have_selector('#spot', count: 5)
+      end
     end
   end
 end
