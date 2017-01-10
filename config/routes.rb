@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :spots, only: [:index]
-  resources :lots, only: [:new, :create, :index]
+  resources :lots, only: [:new, :create]
 
   namespace :api do
     namespace :v1 do

@@ -7,15 +7,12 @@ class LotsController < ApplicationController
   def create
     lot = Lot.new(merge_coordinates)
     if lot.save
+      lot.create_spots(get_spots)
       flash[:success] = "#{lot.name} successfully created"
-      redirect_to lots_path
+      redirect_to spots_path
     else
       render :new
     end
-  end
-
-  def index
-    @lots = Lot.all
   end
 
   private
@@ -26,6 +23,10 @@ class LotsController < ApplicationController
 
   def get_address
     params.require(:lot).permit(:address)[:address]
+  end
+
+  def get_spots
+    params.require(:lot).permit(:spots)[:spots].to_i
   end
 
   def merge_coordinates
