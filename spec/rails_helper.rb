@@ -21,6 +21,20 @@ VCR.configure do |config|
   config.hook_into :webmock
 end
 
+def stub_admin_user
+  user = User.create(
+        email: "admin@admin.com",
+        password: "password",
+        first_name: "admin",
+        last_name: "admin"
+        )
+  visit "/login"
+  fill_in "Email", with: "admin@admin.com"
+  fill_in "Password", with: "password"
+  click_button "Login"
+  user
+end
+
   def stub_omniauth
     OmniAuth.config.test_mode = true
     OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new({
