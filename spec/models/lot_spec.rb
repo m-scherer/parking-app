@@ -19,4 +19,16 @@ RSpec.describe Lot, type: :model do
     end
   end
 
+  context '#update_spots' do
+    it "can update the spots asscoiated with a lot" do
+      lot = create(:lot)
+      spots = 5
+      lot.create_spots(spots)
+      updated_spots = 4
+      lot.update_spots(updated_spots)
+
+      expect(lot.spots.count).to eq(4)
+    end
+  end
+
 end

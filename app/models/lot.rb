@@ -11,4 +11,13 @@ class Lot < ApplicationRecord
     end
   end
 
+  def update_spots(spots)
+    if spots
+      self.spots.destroy_all
+      create_spots(spots)
+    else
+      return
+    end
+  end
+
 end
