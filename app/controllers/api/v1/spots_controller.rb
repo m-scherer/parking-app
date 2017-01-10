@@ -21,8 +21,7 @@ class Api::V1::SpotsController < ApplicationController
   end
 
   def destroy
-    spot = Spot.find(spot_params[:id])
-    render json: spot.destroy,
+    render json: Spot.find(spot_params[:id]).destroy,
         status: 204
   end
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Spot API' do
+describe 'Lot API' do
   let!(:lot) { create(:lot) }
   let!(:new_lot) { Lot.new(lat: 39.733513, long: -104.965172, name: "Big Lot") }
   context 'PUT' do

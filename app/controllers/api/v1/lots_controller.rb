@@ -20,6 +20,11 @@ class Api::V1::LotsController < ApplicationController
     end
   end
 
+  def destroy
+    render json: Lot.find(lot_params[:id]).destroy,
+        status: 204
+  end
+
   private
 
     def lot_params
