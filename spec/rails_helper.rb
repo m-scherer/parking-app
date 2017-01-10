@@ -22,7 +22,7 @@ VCR.configure do |config|
 end
 
 def stub_admin_user
-  user = User.create(
+  admin = Admin.create(
         email: "admin@admin.com",
         password: "password",
         first_name: "admin",
