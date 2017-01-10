@@ -9,7 +9,7 @@ describe 'Spot API' do
 
         expect(spot.taken).to eq(false)
 
-        put "/api/v1/spots/#{spot.id}", params: params
+        put "/api/v1/taken/spots/#{spot.id}", params: params
 
         expect(response).to be_success
         expect(Spot.find(spot.id).taken).to eq(true)
@@ -22,7 +22,7 @@ describe 'Spot API' do
 
         expect(spot.taken).to eq(false)
 
-        put "/api/v1/spots/#{spot.id}", params: params
+        put "/api/v1/taken/spots/#{spot.id}", params: params
 
         expect(response).to be_success
         expect(Spot.find(spot.id).taken).to eq(false)
@@ -36,7 +36,7 @@ describe 'Spot API' do
         spot.update(taken: true)
         expect(spot.taken).to eq(true)
 
-        put "/api/v1/spots/#{spot.id}", params: params
+        put "/api/v1/taken/spots/#{spot.id}", params: params
 
         expect(response).to be_success
         expect(Spot.find(spot.id).taken).to eq(false)

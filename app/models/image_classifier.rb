@@ -16,4 +16,10 @@ class ImageClassifier
     end
   end
 
+  def self.find_vehicle_classification(classifiers)
+    classifiers.find do |classifier|
+      classifier.classification == 'vehicle' && classifier.score > 0.75
+    end
+  end
+
 end

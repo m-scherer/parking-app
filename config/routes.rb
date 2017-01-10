@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :spots, only: [:update]
+      resources :lots, only: [:create, :update, :destroy, :index, :show]
+      resources :spots, only: [:create, :update, :destroy, :index, :show]
+      namespace :taken do
+        resources :spots, only: [:update]
+      end
     end
   end
 
