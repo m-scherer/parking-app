@@ -10,7 +10,7 @@ class Location
     service = GeocodeService.new.find_coordinates(address)
     Location.new(
       service[:results].first[:geometry][:location][:lat],
-      service[:results].first[:geometry][:location][:long]
+      service[:results].first[:geometry][:location][:lng]
     )
   end
 
