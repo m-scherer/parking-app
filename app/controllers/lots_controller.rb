@@ -5,6 +5,7 @@ class LotsController < ApplicationController
   end
 
   def create
+    require "pry"; binding.pry
     lot = Lot.new(lot_params)
     if lot.save
       flash[:success] = "#{lot.name} successfully created"
@@ -22,6 +23,10 @@ class LotsController < ApplicationController
 
   def lot_params
     params.require(:lot).permit(:name)
+  end
+
+  def get_address
+    params.require(:lot).permit(:address)[:address]
   end
 
 end
