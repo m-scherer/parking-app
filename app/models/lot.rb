@@ -3,4 +3,6 @@ class Lot < ApplicationRecord
 
   validates :name, presence: true
 
+  attr_accessor :address
+
 end

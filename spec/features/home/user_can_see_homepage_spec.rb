@@ -5,7 +5,7 @@ describe 'As a User' do
     it 'shows the homepage' do
       visit root_path
 
-      expect(page).to have_content("Welcome")
+      expect(page).to have_content("Parc")
     end
   end
 end
