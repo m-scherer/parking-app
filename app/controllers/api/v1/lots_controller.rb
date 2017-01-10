@@ -25,6 +25,11 @@ class Api::V1::LotsController < ApplicationController
         status: 204
   end
 
+  def index
+    render json: Lot.all,
+        status: 200
+  end
+
   private
 
     def lot_params
