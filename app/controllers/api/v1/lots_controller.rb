@@ -30,6 +30,11 @@ class Api::V1::LotsController < ApplicationController
         status: 200
   end
 
+  def show
+    render json: Lot.find(lot_params[:id]),
+        status: 200
+  end
+
   private
 
     def lot_params

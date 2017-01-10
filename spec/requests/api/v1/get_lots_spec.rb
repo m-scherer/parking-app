@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Lot API' do
-  let!(:lot) { create_list(:lot, 2) }
+  let!(:lots) { create_list(:lot, 2) }
   context 'GET' do
     it "can return all lots" do
       get "/api/v1/lots"
