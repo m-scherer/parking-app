@@ -19,6 +19,7 @@ gem 'figaro'
 gem 'faraday'
 gem 'omniauth-google-oauth2'
 gem 'react-rails'
+gem 'active_model_serializers', '~> 0.10.0'
 
 group :production do
   gem 'rails_12factor'
