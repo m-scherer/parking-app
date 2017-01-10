@@ -15,6 +15,21 @@ class LotsController < ApplicationController
     end
   end
 
+  def edit
+    @lot = Lot.find(params[:id])
+  end
+
+  def update
+    lot = Lot.find(params[:id])
+    if lot.update(merge_coordinates)
+      lot.update_spots(get_spots)
+      flash[:success] = "#{lot.name} successfully updated"
+      redirect_to spots_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def lot_params
@@ -30,8 +45,12 @@ class LotsController < ApplicationController
   end
 
   def merge_coordinates
-    coordinates = Location.create_location(get_address)
-    lot_params.merge(lat: coordinates.lat, long: coordinates.long)
+    if get_address != ""
+      coordinates = Location.create_location(get_address)
+      return lot_params.merge(lat: coordinates.lat, long: coordinates.long)
+    else
+      lot_params
+    end
   end
 
 end

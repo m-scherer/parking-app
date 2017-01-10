@@ -1,0 +1,9 @@
+<%= form_for @lot do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <%= f.label :spots %>
+  <%= f.number_field :spots %>
+  <%= f.submit %>
+<% end %>
