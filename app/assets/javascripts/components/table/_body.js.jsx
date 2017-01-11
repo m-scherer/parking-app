@@ -2,9 +2,8 @@ var Table = React.createClass ({
   getInitialState() {
     return { spots: [] }
   },
-
   componentDidMount() {
-    $.getJSON('/api/v1/spots.json', (response) => { this.setState({ spots: response }) });
+    $.getJSON('/api/v1/spots?lot=true.json', (response) => { this.setState({ spots: response }) });
   },
 
   render() {

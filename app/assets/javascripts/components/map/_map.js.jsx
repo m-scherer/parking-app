@@ -1,8 +1,8 @@
-var Main = React.createClass({
+var GoogleMap = React.createClass({
   render() {
     return (
       <div>
-        <Table />
+        <
       </div>
     )
   }

@@ -26,8 +26,8 @@ class Api::V1::SpotsController < ApplicationController
   end
 
   def index
-    if get_lots?
-      render json: Spot.joins(:lot),
+    if get_lot?
+      render json: Spot.all, each_serializer: SpotsLotsSerializer
     else
       render json: Spot.all,
           status: 200
@@ -45,8 +45,8 @@ class Api::V1::SpotsController < ApplicationController
       params.permit(:lot_id, :number, :id, :taken)
     end
 
-    def get_lots?
-      params.permit(:lots)[:lots]
+    def get_lot?
+      params.permit(:lot)[:lot]
     end
 
 end
