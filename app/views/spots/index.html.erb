@@ -1,6 +1,6 @@
 <h1 class="text-center">Spots</h1>
 <%= react_component 'Table' %>
-<script src="https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_GEOCODE_KEY']}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_KEY'] %>"></script>
 <h1>ERB/RUBY</h1>
 <div class="container-fluid" id="table">
     <table class="table table-condensed">
