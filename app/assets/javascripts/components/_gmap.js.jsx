@@ -23,7 +23,7 @@ var GMap = React.createClass({
     var infowindow = new google.maps.InfoWindow();
     google.maps.event.addListener(marker, 'click', (function (marker, lot) {
         return function () {
-            infowindow.setContent(lot.name);
+            infowindow.setContent("Name: " + lot.name);
             infowindow.open(this.map, marker);
         }
     })(marker, lot));
