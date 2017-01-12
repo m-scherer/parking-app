@@ -26,8 +26,12 @@ class Api::V1::SpotsController < ApplicationController
   end
 
   def index
-    render json: Spot.all,
-        status: 200
+    if get_lot?
+      render json: Spot.all, each_serializer: SpotsLotsSerializer
+    else
+      render json: Spot.all,
+          status: 200
+    end
   end
 
   def show
@@ -39,6 +43,10 @@ class Api::V1::SpotsController < ApplicationController
 
     def spot_params
       params.permit(:lot_id, :number, :id, :taken)
+    end
+
+    def get_lot?
+      params.permit(:lot)[:lot]
     end
 
 end
