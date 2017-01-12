@@ -1,4 +1,5 @@
 class Api::V1::Taken::SpotsController < ApplicationController
+protect_from_forgery with: :null_session
 
   def update
     classifiers = ImageClassifier.create_classifiers(get_image_url)
