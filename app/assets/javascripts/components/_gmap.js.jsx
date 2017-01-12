@@ -5,8 +5,8 @@ var GMap = React.createClass({
 
   createMap: function() {
     var mapOptions = {
-      zoom: 12,
-      center: {lat: 1, lng: 1}
+      zoom: 13,
+      center: { lat: 39.7466999, lng: -104.9878364 }
     }
     return new google.maps.Map(this.refs.map, mapOptions);
   },
